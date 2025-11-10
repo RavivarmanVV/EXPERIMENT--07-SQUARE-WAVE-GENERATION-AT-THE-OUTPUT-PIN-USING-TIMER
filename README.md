@@ -179,7 +179,7 @@ static void MX_TIM2_Init(void)
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = 16;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 12000;
+  htim2.Init.Period = 30000;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -202,7 +202,7 @@ static void MX_TIM2_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 6000;
+  sConfigOC.Pulse = 16500;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
@@ -245,38 +245,49 @@ void assert_failed(uint8_t *file, uint32_t line)
 ```
 
 ## Output screen shots of proteus  :
-<img width="1367" height="873" alt="image" src="https://github.com/user-attachments/assets/48148d57-f9b7-4456-9845-d86a30c8ab8f" />
+<img width="1373" height="883" alt="image" src="https://github.com/user-attachments/assets/47e6ef56-f267-49c0-9825-79c414b709de" />
+<img width="1375" height="884" alt="image" src="https://github.com/user-attachments/assets/a4f97bb9-69c5-47f2-b091-23f359a617dd" />
+<img width="1377" height="870" alt="image" src="https://github.com/user-attachments/assets/80fe1bc3-c0f3-4891-a595-699b44ff71f6" />
 
 
  
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
- <img width="1919" height="1199" alt="Screenshot 2025-10-30 140201" src="https://github.com/user-attachments/assets/48ae032b-410f-4709-817a-8fc193d9c8a0" />
+ <img width="1217" height="860" alt="image" src="https://github.com/user-attachments/assets/59224d7a-409a-4c9c-83d4-54fe32acfb87" />
 
- <img width="1212" height="855" alt="Screenshot 2025-10-30 140221" src="https://github.com/user-attachments/assets/164fbfe9-fb2d-4a3a-a7e6-b34883c6458f" />
 
 
 ## DUTY CYCLE AND FREQUENCY CALCULATION 
-FOR PULSE AT 500
 
-TON = 
-TOFF=
-TOTAL TIME = 
-FREQUENCY = 1/(TOTAL TIME)
+#### FOR DUTY RATIO 15%
 
-FOR PULSE AT 700
+TON = 5ms
 
-TON = 
-TOFF=
-TOTAL TIME = 
-FREQUENCY = 1/(TOTAL TIME)
+TOFF= 21ms
+
+TOTAL TIME = 26ms
+
+FREQUENCY = 1/26ms = 0.038mhz = 38hz
+
+#### FOR DUTY RATIO 25%
+
+TON = 7.5ms
+
+TOFF = 23.5ms
+
+TOTAL TIME =  31ms
+
+FREQUENCY = 1/31ms = 0.032mhz = 32hz
 
 
-FOR PULSE AT 900
+#### FOR DUTY RATIO 55%
 
-TON = 
-TOFF=
-TOTAL TIME = 
-FREQUENCY = 1/(TOTAL TIME)
+TON = 17.5ms
+
+TOFF=13.5ms
+
+TOTAL TIME = 31ms
+
+FREQUENCY = 1/31ms = 32hz
 
 
 ## Result :
